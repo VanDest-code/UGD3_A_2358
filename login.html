@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Sign In</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="box">
-        <h3>Form Sign In</h3>
-        <hr>
-        <label>Username</label>
-        <input type="text" id="username" placeholder="Masukkan Username">
-        
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Masukkan Password">
-        
-        <p id="error-msg" style="color: red; font-size: 12px; display: none; margin-bottom: 10px;">
-            Username atau Password salah!
-        </p>
-        
-        <button id="btn-signin">Sign In</button>
-    </div>
+<div class="login-container">
 
-    <script>
-        const btnSignIn = document.getElementById("btn-signin");
-        const errorMsg = document.getElementById("error-msg");
+<h1>Login</h1>
+<div class="underline"></div>
 
-        btnSignIn.addEventListener("click", function() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
+<input type="text" id="username" placeholder="Email">
 
-            // 1. Cek apakah ada kolom yang kosong
-            if (username === "" || password === "") {
-                errorMsg.style.display = "block";
-                errorMsg.textContent = "Error: Semua kolom wajib diisi!";
-            } 
-            // 2. Jika terisi, cek apakah username dan password benar
-            else if (username === "WebS6" && password === "qwerty") {
-                errorMsg.style.display = "none"; // Sembunyikan error jika berhasil
-                window.location.href = "https://www.instagram.com/destinus06/";
-            } 
-            // 3. Jika username/password salah
-            else {
-                errorMsg.style.display = "block";
-                errorMsg.textContent = "Username atau Password salah!";
-            }
-        });
-    </script>
+<input type="password" id="password" placeholder="Password">
+
+<p class="forgot">Forgot password?</p>
+
+<button id="btn-login">Login</button>
+
+<p class="signup">Not a member? <a href="#">Signup now</a></p>
+
+<p id="error-msg"></p>
+
+</div>
+
+<script>
+
+const btnLogin = document.getElementById("btn-login");
+const errorMsg = document.getElementById("error-msg");
+
+btnLogin.addEventListener("click", function(){
+
+const username = document.getElementById("username").value;
+const password = document.getElementById("password").value;
+
+if(username === "" || password === ""){
+
+errorMsg.style.display="block";
+errorMsg.textContent="Semua kolom harus diisi";
+
+}
+else if(username === "WebS6" && password === "qwerty"){
+
+window.location.href="https://www.instagram.com/destinus06/";
+
+}
+else{
+
+errorMsg.style.display="block";
+errorMsg.textContent="Username atau Password salah";
+
+}
+
+});
+
+</script>
+
 </body>
 </html>
